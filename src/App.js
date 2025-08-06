@@ -60,6 +60,17 @@ function App() {
     });
   }, [cart, dispatch]);
 
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch(
+        'https://redux-practice-bd9fe-default-rtdb.firebaseio.com/cart.json'
+      );
+      const data = await response.json();
+      console.log(data);
+    };
+    getData();
+  }, []);
+
   return (
     <>
       {notification && (
